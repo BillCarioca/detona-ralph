@@ -23,7 +23,7 @@
     flex-direction: row;
     align-items: center;
 }
-.menu__time, .menu__score{
+.menu__time, .menu__score, .menu__best-score{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -50,4 +50,19 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+}
+@media screen and (max-width: 600px){
+    .square{
+        width: 100px;
+        height: 100px;
+    }
+    h2 {
+        font-size: 1rem;
+    }
+    img {
+        width: 40px;
+    }
+    .menu__lives{
+        flex-direction: column;
+    }
 }

@@ -3,13 +3,17 @@ const state = {
         squares: document.querySelectorAll(".square"),
         enemy: document.querySelector(".enemy"),
         timeLeft: document.querySelector("#time-left"),
-        score: document.querySelector("#score")
+        score: document.querySelector("#score"),
+        lives: document.querySelector("#lives"),
+        bestScore: document.querySelector("#best-score")
     },
     value: {
         gameVelocity: 1000,
         hitPosition:0,
         result:0,
-        curretTime:60
+        curretTime:20,
+        pointLive:3,
+        bestScore:0
     },
     actions:{
         timeId: setInterval(randomSquare,1000),
@@ -48,9 +52,29 @@ function countDown(){
     state.value.curretTime--
     state.view.timeLeft.textContent = state.value.curretTime
     if(state.value.curretTime<=0){
-        clearInterval(state.actions.countDownTimeId)
-        clearInterval(state.actions.timeId)
+        
         alert("Game Over! O seu resultado foi: "+state.value.result)
+
+        liveDown()
+
+        state.value.result = 0
+        state.value.curretTime = 20
+        state.view.timeLeft.textContent = state.value.curretTime
+        state.view.score.textContent = state.value.result
+    }
+}
+
+function liveDown(){
+    if(state.value.bestScore<state.value.result) {
+        state.value.bestScore=state.value.result
+        state.view.bestScore.textContent = state.value.bestScore
+    }
+    state.value.pointLive--
+    state.view.lives.textContent = state.value.pointLive + "X"
+    if(state.value.pointLive<=0){
+        clearInterval(state.actions.countDownTimeId)
+        clearInterval(state.actions.timeId)   
+        alert("Game Over! O seu melhor resultado foi: "+state.value.bestScore)
     }
 }
 

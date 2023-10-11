@@ -3,6 +3,7 @@
     flex-direction: column;
     height: 100vh;
     background-image: url("../images/wall.png");
+    justify-content: space-between;
 }
 .menu{
     display: inline-flex;
@@ -14,6 +15,17 @@
     color: rgb(255, 255, 255);
     border-bottom: 5px solid rgb(255, 215, 0);
 }
+.menu__footer{
+    display: inline-flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 90px;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border-top: 5px solid rgb(255, 215, 0);
+    margin-top: 20px;
+}
 .red{
     color: rgb(255, 0, 0);
     margin-bottom: 1rem;
@@ -23,7 +35,7 @@
     flex-direction: row;
     align-items: center;
 }
-.menu__time, .menu__score, .menu__best-score{
+.menu__time, .menu__score, .menu__best-score, .menu__total, .menu__level{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,7 +58,14 @@
     border: 1px solid rgb(0, 0, 0);
 }
 .enemy{
-    background-image: url("../images/ralph.png");
+    background-image: url("../images/Ralph02.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.hitEnemy{
+    background-color: brown;
+    background-image: url("../images/Ralph01.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -57,7 +76,7 @@
         height: 100px;
     }
     h2 {
-        font-size: 1rem;
+        font-size: .8rem;
     }
     img {
         width: 40px;
